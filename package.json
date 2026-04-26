@@ -1,19 +1,12 @@
 {
   "name": "xinn-ai",
-  "version": "1.0.0",
-  "description": "XINN AI - Premium AI Chat Assistant with Groq API",
-  "main": "api/chat.js",
+  "version": "2.0.0",
+  "description": "XINN AI - Uncensored AI Assistant",
   "scripts": {
     "dev": "vercel dev",
     "deploy": "vercel --prod"
   },
-  "keywords": ["ai", "chat", "groq", "xinn"],
-  "author": "XINN",
-  "license": "MIT",
   "dependencies": {
-    "groq-sdk": "^0.5.0"
-  },
-  "devDependencies": {
-    "vercel": "^32.0.0"
+    "groq-sdk": "^0.8.0"
   }
 }
