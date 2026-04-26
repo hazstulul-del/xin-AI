@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Chat - XINN AI</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+
+    <!-- TOP BAR CHAT -->
+    <nav class="topbar">
+        <button class="topbar-btn" onclick="goBack()" aria-label="Kembali">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="topbar-logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Xinn AI</span>
+        </div>
+        <button class="topbar-btn" onclick="showMoreMenu()" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+        </button>
+    </nav>
+
+    <!-- CHAT AREA -->
+    <main class="chat-main" id="chatMain">
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages akan dimuat dari localStorage & API -->
+        </div>
+    </main>
+
+    <!-- CHAT INPUT -->
+    <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+            <button class="btn-plus" onclick="showPlusMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleChatKey(event)">
+            <button class="btn-send" onclick="sendChatMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- TYPING INDICATOR (hidden by default) -->
+    <div class="typing-indicator" id="typingIndicator" style="display:none;">
+        <div class="typing-bubble">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHh3eXl6eGd0eGJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PXM/3o7abB06u9bNzA8lu8/giphy.gif" alt="AI" class="typing-avatar">
+            <div class="typing-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM SHEETS SAMA KAYA INDEX.HTML -->
+    <div class="bottom-sheet-overlay" id="plusOverlay" onclick="hidePlusMenu()"></div>
+    <div class="bottom-sheet" id="plusMenu">
+        <div class="bottom-sheet-handle"></div>
+        <h3 class="bottom-sheet-title">Menu Tambah</h3>
+        <div class="bottom-sheet-grid">
+            <button class="bottom-sheet-item" onclick="featureSoon('Foto')"><div class="bs-icon">📷</div><span>Foto</span></button>
+            <button class="bottom-sheet-item" onclick="featureSoon('Kamera')"><div class="bs-icon">📸</div><span>Kamera</span></button>
+            <button class="bottom-sheet-item" onclick="featureSoon('File')"><div class="bs-icon">📁</div><span>File</span></button>
+            <button class="bottom-sheet-item" onclick="featureSoon('Suara')"><div class="bs-icon">🎤</div><span>Suara</span></button>
+        </div>
+    </div>
+
+    <div class="bottom-sheet-overlay" id="moreOverlay" onclick="hideMoreMenu()"></div>
+    <div class="bottom-sheet" id="moreMenu">
+        <div class="bottom-sheet-handle"></div>
+        <h3 class="bottom-sheet-title">Menu Lainnya</h3>
+        <div class="bottom-sheet-list">
+            <button class="bs-list-item" onclick="clearCurrentChat()"><span>🗑️</span> Hapus Chat Ini</button>
+            <button class="bs-list-item" onclick="exportCurrentChat()"><span>📤</span> Export Chat Ini</button>
+            <button class="bs-list-item" onclick="showAbout()"><span>ℹ️</span> Tentang XINN AI</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+              </html>
