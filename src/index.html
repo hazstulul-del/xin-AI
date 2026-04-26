@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="description" content="XINN AI - Asisten AI Premium, Siap Bantu Coding, Desain, Debug, dan Ide Kamu">
+    <title>XINN AI - Asisten AI Premium</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- STARFIELD BACKGROUND -->
+    <div class="starfield" id="starfield"></div>
+    
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHh3eXl6eGd0eGJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PXM/3o7abB06u9bNzA8lu8/giphy.gif" alt="XINN AI Avatar">
+                    <div class="avatar-glow"></div>
+                </div>
+                <div class="sidebar-profile-info">
+                    <h3>XINN AI</h3>
+                    <span class="badge-pro">PRO</span>
+                </div>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <button class="btn-new-chat" onclick="newChat()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Obrolan Baru
+        </button>
+        <div class="sidebar-history" id="sidebarHistory">
+            <p class="history-title">Riwayat Chat</p>
+            <div id="historyList"></div>
+        </div>
+        <div class="sidebar-footer">
+            <button class="sidebar-settings" onclick="showSettings()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                Pengaturan
+            </button>
+        </div>
+    </aside>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <button class="topbar-btn" onclick="toggleSidebar()" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Xinn AI</span>
+        </div>
+        <button class="topbar-btn" onclick="showMoreMenu()" aria-label="Menu Lainnya">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+        </button>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-home">
+        <!-- AVATAR SECTION -->
+        <div class="hero-section">
+            <div class="avatar-container">
+                <div class="avatar-ring">
+                    <div class="avatar-ring-inner">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHh3eXl6eGd0eGJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMmJzMiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PXM/3o7abB06u9bNzA8lu8/giphy.gif" alt="XINN AI" class="avatar-gif">
+                    </div>
+                </div>
+            </div>
+            <h1 class="hero-title">Apa yang bisa saya bantu?</h1>
+            <p class="hero-subtitle">Xinn AI siap bantu coding, desain, debug, dan ide kamu.</p>
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="quick-actions">
+            <div class="quick-action-card" onclick="startChat('Buatkan kode HTML & CSS untuk landing page modern')">
+                <div class="quick-action-icon">💻</div>
+                <div class="quick-action-text">
+                    <h4>Buatkan kode HTML & CSS</h4>
+                    <p>Landing page, komponen UI, animasi</p>
+                </div>
+                <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="quick-action-card" onclick="startChat('Jelaskan konsep machine learning dengan sederhana')">
+                <div class="quick-action-icon">🧠</div>
+                <div class="quick-action-text">
+                    <h4>Bantu jelaskan suatu konsep</h4>
+                    <p>Teknologi, sains, bisnis, apapun</p>
+                </div>
+                <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="quick-action-card" onclick="startChat('Buatkan ide konten sosial media untuk brand fashion')">
+                <div class="quick-action-icon">📱</div>
+                <div class="quick-action-text">
+                    <h4>Buat ide konten sosial media</h4>
+                    <p>Caption, strategi, tren terbaru</p>
+                </div>
+                <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="quick-action-card" onclick="startChat('Bantu debug kode Python saya yang error')">
+                <div class="quick-action-icon">🐛</div>
+                <div class="quick-action-text">
+                    <h4>Bantu debug kode saya</h4>
+                    <p>Error, bug, optimasi, refactor</p>
+                </div>
+                <svg class="quick-action-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- CHAT INPUT (FIXED BOTTOM) -->
+    <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+            <button class="btn-plus" onclick="showPlusMenu()" aria-label="Tambah">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleKeyPress(event)">
+            <button class="btn-send" onclick="sendMessage()" aria-label="Kirim">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTTOM SHEET: MENU PLUS -->
+    <div class="bottom-sheet-overlay" id="plusOverlay" onclick="hidePlusMenu()"></div>
+    <div class="bottom-sheet" id="plusMenu">
+        <div class="bottom-sheet-handle"></div>
+        <h3 class="bottom-sheet-title">Menu Tambah</h3>
+        <div class="bottom-sheet-grid">
+            <button class="bottom-sheet-item" onclick="featureSoon('Foto')">
+                <div class="bs-icon">📷</div>
+                <span>Foto</span>
+            </button>
+            <button class="bottom-sheet-item" onclick="featureSoon('Kamera')">
+                <div class="bs-icon">📸</div>
+                <span>Kamera</span>
+            </button>
+            <button class="bottom-sheet-item" onclick="featureSoon('File')">
+                <div class="bs-icon">📁</div>
+                <span>File</span>
+            </button>
+            <button class="bottom-sheet-item" onclick="featureSoon('Suara')">
+                <div class="bs-icon">🎤</div>
+                <span>Suara</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTTOM SHEET: MENU TITIK TIGA -->
+    <div class="bottom-sheet-overlay" id="moreOverlay" onclick="hideMoreMenu()"></div>
+    <div class="bottom-sheet" id="moreMenu">
+        <div class="bottom-sheet-handle"></div>
+        <h3 class="bottom-sheet-title">Menu Lainnya</h3>
+        <div class="bottom-sheet-list">
+            <button class="bs-list-item" onclick="deleteAllChats()">
+                <span>🗑️</span> Hapus Semua Chat
+            </button>
+            <button class="bs-list-item" onclick="exportAllChats()">
+                <span>📤</span> Export Semua Chat
+            </button>
+            <button class="bs-list-item" onclick="showAbout()">
+                <span>ℹ️</span> Tentang XINN AI
+            </button>
+            <button class="bs-list-item" onclick="showHelp()">
+                <span>❓</span> Bantuan & FAQ
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+              </html>
